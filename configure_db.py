@@ -1,4 +1,5 @@
 import mysql.connector
+import config
 
 ## Configure databases
 
@@ -8,3 +9,10 @@ mydb = mysql.connector.connect(
   password= config.password,
   database= config.database
 )
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SHOW TABLES")
+
+for x in mycursor:
+  print(x)
